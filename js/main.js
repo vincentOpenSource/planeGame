@@ -131,6 +131,7 @@ game.States.preload = function () {
     game.load.spritesheet('myexplode', 'assets/myexplode.png', 40, 40, 3);
     game.load.image('award', 'assets/award.png');
     game.load.audio('normalback', 'assets/normalback.mp3');
+    game.load.auido('happy', 'assets/happlybothday.mp3');
     game.load.audio('playback', 'assets/playback.mp3');
     game.load.audio('fashe', 'assets/fashe.mp3');
     game.load.audio('crash1', 'assets/pu.mp3');
@@ -432,9 +433,13 @@ game.States.over = function () {
     // this.sharebutton = game.add.button(130, 300, 'sharebutton', this.onShareClick, this, 0, 0, 1);
     // 背景音乐
     this.normalback = game.add.audio('normalback', 0.2, true);
-    this.normalback.play();
+    this.happy = game.add.audio('happy', 0.2, true);
+    this.happlybothday = game.add.audio('')
     if (score === 520 || score === 2020) {
+      this.happlybothday.play();
       this.paintedEggshell();
+    } else {
+      this.normalback.play();
     }
   };
   // 重来
